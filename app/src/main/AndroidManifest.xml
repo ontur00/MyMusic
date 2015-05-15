@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PlayMusicUIThread"
+            android:label="@string/title_activity_play_music_uithread" >
+        </activity>
     </application>
 
 </manifest>

@@ -21,4 +21,5 @@
         <item> play music AsyncTask</item>
         <item> play music Service</item>
     </string-array>
+    <string name="title_activity_play_music_uithread">PlayMusicUIThread</string>
 </resources>
