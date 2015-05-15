@@ -89,6 +89,7 @@ public class MainActivity extends Activity {
                 .notifyDataSetChanged();
                 view.setAlpha(1);
                 */
+                if( position == 0)
                 Toast.makeText(getApplicationContext(),
                         String.valueOf(position), Toast.LENGTH_SHORT).show();
             }
