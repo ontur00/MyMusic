@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MyMusic</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="list_viewContainer">
+        <item> play music UI Thread</item>
+        <item> play music Thread</item>
+        <item> play music AsyncTask</item>
+        <item> play music Service</item>
+        <item> play music UI Thread</item>
+        <item> play music Thread</item>
+        <item> play music AsyncTask</item>
+        <item> play music Service</item>
+        <item> play music UI Thread</item>
+        <item> play music Thread</item>
+        <item> play music AsyncTask</item>
+        <item> play music Service</item>
+        <item> play music UI Thread</item>
+        <item> play music Thread</item>
+        <item> play music AsyncTask</item>
+        <item> play music Service</item>
+    </string-array>
+</resources>
