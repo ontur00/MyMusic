@@ -28,7 +28,7 @@ public class PlayMusicUIThread extends ActionBarActivity {
      * Metoda która inicjalizuje GUI
      */
     private void initializeGUI() {
-        textView1 = (TextView) findViewById(R.id.play_music_UI_Thread);
+        textView1 = (TextView) findViewById(R.id.Album_Name);
 
         //Pobierz zawartosc Resources
         Resources res = getResources();
