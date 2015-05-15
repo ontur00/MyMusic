@@ -92,6 +92,9 @@ public class MainActivity extends Activity {
                 if( position == 0)
                 Toast.makeText(getApplicationContext(),
                         String.valueOf(position), Toast.LENGTH_SHORT).show();
+                else {
+
+                }
             }
         });
     }
