@@ -44,30 +44,35 @@
             android:text="mm/ss song"
             android:id="@+id/time_Song" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="Prev"
-            android:id="@+id/previous_Song"/>
+       <LinearLayout
+           android:layout_width="fill_parent"
+           android:layout_height="60dp">
+           <Button
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:text="Prev"
+               android:id="@+id/previous_Song"/>
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="stop"
-            android:id="@+id/stop" />
+           <Button
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:text="stop"
+               android:id="@+id/stop" />
 
-        <ToggleButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="Play/Pause"
-            android:id="@+id/play_Pause" />
+           <ToggleButton
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:text="Play/Pause"
+               android:id="@+id/play_Pause" />
 
-        <Button
+           <Button
 
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="Next"
-            android:id="@+id/next_Song" />
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:text="Next"
+               android:id="@+id/next_Song" />
 
+
+       </LinearLayout>
 
 </LinearLayout>
