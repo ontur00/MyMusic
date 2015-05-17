@@ -20,6 +20,11 @@
             android:name=".PlayMusicUIThread"
             android:label="@string/title_activity_play_music_uithread" >
         </activity>
+
+        <service
+            android:name=".AllServices.MyService"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.radog90.mymusic;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +14,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.example.radog90.mymusic.AllServices.MyService;
 
 /**
  * Wyglad oraz funkcje nowego okna
@@ -91,7 +94,7 @@ public class PlayMusicUIThread extends ActionBarActivity {
                     mediaPlayer.start();
                     break;
             }
-        }
+    }
     }
 
     /**
@@ -123,15 +126,22 @@ public class PlayMusicUIThread extends ActionBarActivity {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-
             if (isChecked){
                 //Toggle Button ...
                 Toast.makeText(getApplicationContext(),
                         String.valueOf(isChecked), Toast.LENGTH_SHORT).show();
+
+                //Zalacz service
+                Intent intent = new Intent(PlayMusicUIThread.this, MyService.class);
+                startService(intent);
             }else{
                 //Toggle Button ...
                 Toast.makeText(getApplicationContext(),
                         String.valueOf(isChecked), Toast.LENGTH_SHORT).show();
+
+                //Wylacz service
+                Intent intent = new Intent(PlayMusicUIThread.this, MyService.class);
+                stopService(intent);
             }
         }
     }
