@@ -2,13 +2,9 @@ package com.example.radog90.mymusic;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -26,7 +22,9 @@ public class PlayMusicUIThread extends ActionBarActivity {
     private TextView textView1;
     private boolean log_i = true;                   //Zmienna do wyswietlania log.i(...);
     private Button previousSong;
+    private Button stopSong;
     private ToggleButton playPause;
+    private Intent intentService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +68,12 @@ public class PlayMusicUIThread extends ActionBarActivity {
         ButtonsLongClickListener longListener = new ButtonsLongClickListener();
         previousSong.setOnLongClickListener(longListener);
 
+        //Button dla Stop
+        stopSong = (Button) findViewById(R.id.stop);
+
+        //Akcja dla buttona, Stop piosenki
+        stopSong.setOnClickListener(listener);
+
         //ToggleButton dodanie akcji Play/Pause muzyki
         playPause = (ToggleButton) findViewById(R.id.play_Pause);
         PlayPauseToggleListener playPauseToggleListener = new PlayPauseToggleListener();
@@ -89,12 +93,21 @@ public class PlayMusicUIThread extends ActionBarActivity {
                 case R.id.previous_Song:
                     Toast.makeText(PlayMusicUIThread.this,
                             "previous Song click", Toast.LENGTH_SHORT).show();
-                    MediaPlayer mediaPlayer = MediaPlayer.create(
-                            getBaseContext(), R.drawable.adb);
-                    mediaPlayer.start();
+                    //MediaPlayer mediaPlayer = MediaPlayer.create(
+                    //        getBaseContext(), R.drawable.adb);
+                    //mediaPlayer.start();
                     break;
+
+                case R.id.stop:
+                    Toast.makeText(PlayMusicUIThread.this,
+                            "Stop Song click", Toast.LENGTH_SHORT).show();
+                    intentService = new Intent(PlayMusicUIThread.this, MyService.class);
+                    intentService.putExtra("Action", "Stop");
+                    startService(intentService);
+                    break;
+
             }
-    }
+        }
     }
 
     /**
@@ -126,22 +139,24 @@ public class PlayMusicUIThread extends ActionBarActivity {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-            if (isChecked){
+            if (isChecked) {
                 //Toggle Button ...
                 Toast.makeText(getApplicationContext(),
                         String.valueOf(isChecked), Toast.LENGTH_SHORT).show();
 
-                //Zalacz service
-                Intent intent = new Intent(PlayMusicUIThread.this, MyService.class);
-                startService(intent);
-            }else{
+                //Zalacz service - Play muzyki
+                intentService = new Intent(PlayMusicUIThread.this, MyService.class);
+                intentService.putExtra("Action", "Play");
+                startService(intentService);
+            } else {
                 //Toggle Button ...
                 Toast.makeText(getApplicationContext(),
                         String.valueOf(isChecked), Toast.LENGTH_SHORT).show();
 
-                //Wylacz service
-                Intent intent = new Intent(PlayMusicUIThread.this, MyService.class);
-                stopService(intent);
+                //Kontynuowanie service - Pause muzyki
+                intentService = new Intent(PlayMusicUIThread.this, MyService.class);
+                intentService.putExtra("Action", "Pause");
+                startService(intentService);
             }
         }
     }
